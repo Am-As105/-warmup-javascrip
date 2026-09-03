@@ -7,8 +7,9 @@ const produit = {
 
 console.log(produit.nom + " - " + produit.prix + " DH - " + produit.stock + " en stock (" + produit.categorie + ")");
 
-produit.prix = produit.prix * 1.1;
-console.log("Nouveau prix : " + produit.prix);
+produitPrix = produit.prix * 1.1;
+
+console.log("Nouveau prix : " + produit.prix.toFixed(2));
 
 produit.enPromotion = false;
 
@@ -16,6 +17,9 @@ const keys = Object.keys(produit);
 let i = 0;
 while (i < keys.length) {
     let key = keys[i];
+    if(key === "prix"){
+        console.log(key + " : " + produit[key].toFixed(2));
+    }
     console.log(key + " : " + produit[key]);
     i++;
 }
