@@ -19,6 +19,8 @@ while (i < keys.length) {
     let key = keys[i];
     if(key === "prix"){
         console.log(key + " : " + produit[key].toFixed(2));
+        i++;
+        continue;
     }
     console.log(key + " : " + produit[key]);
     i++;
