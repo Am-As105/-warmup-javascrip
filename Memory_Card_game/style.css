@@ -1,6 +1,6 @@
 body
 {
-    background: white;
+    background: greenyellow ;
     color: black;
     font-family: Arial, sans-serif;
     text-align: center;
@@ -10,14 +10,14 @@ body
 {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
 }
 
 #game {
 
     margin-top: 100px;
     display: grid;
-    grid-template-columns: repeat(4 ,100px);
+    grid-template-columns: repeat(4 ,120px);
     gap: 20px;
     
       
@@ -27,10 +27,14 @@ body
 
 .card_img
 {
-    width: 100px;
-    height: 100px;
-    border: 2px solid black;
-    background: black;
+    background-image: url("imgs/back.jpg");
+    width: 120px;
+    height: 120px;
+    border: 2px solid black; 
+    background-image: url("imgs/back.jpg");
+    background-size: cover;
+    background-position: center;
+    
 }
 
 .image
@@ -45,7 +49,7 @@ body
 button
 {
     margin-top: 100px ;
-    padding: 10px 20px;
+    padding: 20px 200px;
     background: black;
     color: white;
     border: none;
