@@ -16,7 +16,7 @@ const cards = [
     { name: "baseball", image: "" },
     { name: "volleyball", image: "" },
     { name: "boxing", image: "" },
-    
+
     { name: "football", image: "" },
     { name: "basketball", image: "" },
     { name: "tennis", image: "" },
@@ -35,6 +35,24 @@ cards.forEach( (card) =>
     img.classList.add("image");
     card_img.appendChild(img); 
     img.setAttribute("src", card.image);
-    img.setAttribute("alt", card.name); 
+    img.setAttribute("alt", card.name);
+    
+    card_img.appendChild(img);
+    game.appendChild(card_img);
+
+     card_img.addEventListener( "click",() => 
+    {
+        img.style.display = "block";
+
+        console.log(card);
+
+    });
+    
+    
 
 });
+
+cards.sort( () => { return Math.random() - 0.5});
+
+
+
