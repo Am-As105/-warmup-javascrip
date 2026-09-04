@@ -1,0 +1,181 @@
+# Mini-brief Warm-Up — Memory Card Game DOM
+
+Vous avez normalement déjà travaillé avec **HTML, CSS et JavaScript côté frontend**, notamment dans un contexte où Laravel était utilisé côté backend. Ici, l'objectif n'est donc pas de découvrir une page web depuis zéro, mais de reprendre les bases frontend en autonomie, sans backend, et de rendre visible votre compréhension du DOM, des événements, de l'état d'une interface et du workflow Git/GitHub.
+
+## Compétences travaillées
+
+Ce mini-brief permet de travailler :
+
+* l'organisation d'un petit projet front-end ;
+* la création d'une interface HTML/CSS lisible ;
+* la manipulation du DOM avec JavaScript ;
+* la gestion des événements utilisateur ;
+* la gestion d'un état de jeu côté navigateur ;
+* le découpage du code en fonctions compréhensibles ;
+* la documentation minimale d'un dépôt GitHub ;
+* la présentation courte d'un travail réalisé.
+
+## Contexte du projet
+
+Pour terminer le Warm-Up JavaScript, vous allez créer un petit jeu de mémoire dans le navigateur.
+
+Le principe : des cartes sont affichées face cachée. Le joueur clique sur deux cartes pour les retourner. Si les deux cartes affichent la même image, elles forment une paire et restent visibles. Sinon, elles se retournent à nouveau. La partie se termine lorsque toutes les paires d'images sont trouvées.
+
+Vous choisissez librement les images utilisées dans votre jeu. Elles doivent simplement être lisibles et adaptées à une interface de jeu de mémoire.
+
+Cette version ne contient pas de backend, de base de données ou d'authentification. Tout se passe côté navigateur avec HTML, CSS et JavaScript natif.
+
+## Objectifs pédagogiques
+
+À la fin de ce mini-brief, vous devez être capable de :
+
+* structurer une petite application front-end en fichiers séparés ;
+* sélectionner et modifier des éléments du DOM ;
+* réagir à des événements utilisateur ;
+* afficher dynamiquement une grille de cartes ;
+* gérer l'état d'un jeu côté navigateur ;
+* comparer deux cartes sélectionnées ;
+* bloquer temporairement les clics pendant une vérification ;
+* expliquer votre code et votre démarche ;
+* garder une trace claire de votre travail avec Git/GitHub.
+
+## Cahier des charges fonctionnel
+
+Votre mini-application doit permettre de :
+
+1. Afficher une grille d'au moins 12 cartes, soit 6 paires.
+2. Les cartes doivent être générées avec JavaScript à partir d'un tableau de données.
+3. Chaque paire doit être représentée par deux cartes qui utilisent la même image.
+4. Les cartes doivent être mélangées au lancement de la partie.
+5. Au clic, une carte doit se retourner et révéler son image.
+6. Le joueur ne peut retourner que deux cartes à la fois.
+7. Si les deux cartes affichent la même image, elles restent visibles et sont marquées comme trouvées.
+8. Si les deux cartes ne correspondent pas, elles se retournent après un court délai.
+9. Le jeu doit afficher :
+   * le nombre de coups joués ;
+   * le nombre de paires trouvées ;
+   * un message de victoire quand toutes les paires sont trouvées.
+10. Un bouton doit permettre de recommencer une partie.
+
+## Contraintes techniques
+
+* Utiliser uniquement HTML, CSS et JavaScript natif.
+* Ne pas utiliser Laravel, backend, base de données ou framework JavaScript.
+* Séparer le code au minimum en trois fichiers :
+  * `index.html`
+  * `style.css`
+  * `script.js`
+* Générer les cartes avec JavaScript : les cartes ne doivent pas être toutes codées en dur dans le HTML.
+* Les cartes retournées doivent afficher de vraies images avec des balises `<img>`, pas seulement du texte ou des emojis.
+* Les images attendues sont des fichiers image ou des URL d'image utilisés dans l'attribut `src` d'une balise `<img>`.
+* Évitez les SVG dessinés directement dans le HTML ou générés en JavaScript : l'objectif est de manipuler des éléments `<img>` classiques.
+* Les images peuvent être placées dans un dossier du projet, par exemple `assets/images/`, ou provenir d'URL externes fiables.
+* Chaque image doit avoir un attribut `alt` compréhensible.
+* Utiliser au minimum :
+  * `querySelector` ou `querySelectorAll` ;
+  * `addEventListener` ;
+  * `textContent` ou `innerHTML` de manière maîtrisée ;
+  * `classList` ;
+  * au moins une méthode de tableau : `map`, `sort`, `find`, `some` ou `forEach`.
+* Prévoir au moins trois états visuels pour une carte :
+  * face cachée ;
+  * face visible ;
+  * paire trouvée.
+* L'interface doit être lisible sur ordinateur et mobile.
+* Le code doit rester compréhensible : noms de variables clairs, fonctions courtes, logique découpée.
+
+## Workflow Git/GitHub attendu
+
+Le projet doit être réalisé dans le **même dépôt GitHub utilisé pour le Warm-Up JavaScript**.
+
+Créez un dossier dédié au projet, par exemple :
+
+```text
+memory-card-game/
+```
+
+Attendu minimum :
+
+* une branche dédiée, par exemple `feature/memory-card-game` ;
+* plusieurs commits courts et explicites ;
+* un `README.md` mis à jour dans le dépôt ;
+* une démonstration possible depuis le dépôt local.
+
+Exemples de commits :
+
+```text
+feat : ajouter la structure HTML du memory game
+feat : generer les cartes depuis JavaScript
+feat : gerer le retournement des cartes
+feat : detecter les paires trouvees
+fix : bloquer les clics pendant la comparaison
+docs : documenter le mini brief memory
+```
+
+## Modalités d'évaluation
+
+Évaluation légère, orientée démonstration et compréhension du code.
+
+Format recommandé :
+
+* 5 minutes de démonstration fonctionnelle ;
+* 5 minutes d'explication du code ;
+* 5 minutes de questions sur Git/GitHub, DOM ou événements.
+
+L'apprenant doit pouvoir expliquer :
+
+* comment les cartes sont stockées en JavaScript ;
+* comment elles sont mélangées ;
+* comment les balises `<img>` sont créées ou injectées dans la page ;
+* quel événement déclenche le retournement ;
+* comment la comparaison de deux cartes fonctionne ;
+* comment l'état du jeu est suivi ;
+* quels commits montrent son avancement.
+
+## Livrables attendus
+
+* Lien du dépôt GitHub.
+* Application fonctionnelle en local.
+* Fichiers `index.html`, `style.css`, `script.js`.
+* `README.md` contenant :
+  * le nom du projet ;
+  * une courte description ;
+  * les fonctionnalités réalisées ;
+  * la manière d'ouvrir ou lancer le projet ;
+  * les difficultés rencontrées ;
+  * les améliorations possibles.
+* Historique Git lisible.
+
+## Critères de performance
+
+* Le jeu affiche correctement une grille de cartes mélangées.
+* Les cartes se retournent au clic et révèlent une image.
+* Le jeu détecte correctement les paires.
+* Les cartes non correspondantes se retournent après un court délai.
+* Le compteur de coups fonctionne.
+* Le message de victoire apparaît au bon moment.
+* Le bouton restart relance une nouvelle partie.
+* Le code JavaScript manipule réellement le DOM.
+* Le HTML généré contient de vraies balises `<img>` pour les faces visibles des cartes.
+* L'interface est claire et responsive.
+* Le dépôt est lisible et documenté.
+* Les commits sont réguliers et compréhensibles.
+* L'apprenant sait expliquer son propre code.
+
+## Bonus
+
+À faire seulement si le socle est terminé :
+
+* ajouter un timer ;
+* calculer un score ;
+* ajouter plusieurs niveaux de difficulté ;
+* sauvegarder le meilleur score dans `localStorage` ;
+* ajouter des animations de retournement ;
+* ajouter un écran de démarrage avec pseudo ;
+* déployer la mini-application avec GitHub Pages.
+
+## Points à retenir
+
+Ce mini-brief n'est pas un gros projet. Il doit rester court, clair et démontrable.
+
+La priorité est de vérifier que vous savez passer d'un JavaScript exécuté en console à une interface web interactive, tout en gardant une trace professionnelle de votre travail avec Git/GitHub.

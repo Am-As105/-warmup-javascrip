@@ -35,6 +35,8 @@ let second_card = null;
 let found_cards = [];
 let lock_clik = false;
 
+let move_count = 0;
+let  count_pair = 0;
 
 cards.forEach( (card) =>
 { 
@@ -54,28 +56,40 @@ cards.forEach( (card) =>
     {
         if(found_cards.includes(card))
             return;
+         
         if(lock_clik)
             return;
+        if (first_card === card)
+        return;
 
         img.style.display = "block";
         
         if ( first_card === null) 
         {
-            first_card = card;
+            first_card = card; 
             first_card.img = img;
-        }   
+        } 
         else 
         {
             second_card = card;
             second_card.img = img
             lock_clik = true;
+
             
             
             if (first_card.name === second_card.name)
             {
                  found_cards.push(first_card);
                  found_cards.push(second_card);
+                 first_card = null;
+                 second_card = null;
                  lock_clik =false;
+                 count_pair++;
+                
+                 pairs.textContent = `pairs: ${count_pair}`; 
+                 move_count++;
+                 moves.textContent = `Moves: ${move_count}`; 
+                
             }else 
             {
                 second_card.img = img;
@@ -88,6 +102,9 @@ cards.forEach( (card) =>
                     lock_clik = false;
                     
                 }, 1000)
+                move_count++;
+                moves.textContent = `Moves: ${move_count}`; 
+               
                 
             }           
         }
