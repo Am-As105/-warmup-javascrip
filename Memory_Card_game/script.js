@@ -85,10 +85,11 @@ cards.forEach( (card) =>
                  second_card = null;
                  lock_clik =false;
                  count_pair++;
+                  
                 
                  pairs.textContent = `pairs: ${count_pair}`; 
                  move_count++;
-                 moves.textContent = `Moves: ${move_count}`; 
+                 moves.textContent = `Moves: ${move_count}`;
                 
             }else 
             {
@@ -97,6 +98,7 @@ cards.forEach( (card) =>
                 {
                     first_card.img.style.display = "none";
                     second_card.img.style.display = "none";
+                    second_card.img.style.backgroundColor = "red";
                     first_card = null;
                     second_card = null;
                     lock_clik = false;
@@ -108,8 +110,7 @@ cards.forEach( (card) =>
                 
             }           
         }
-
-
+        
         // console.log(card);
 
     });
@@ -117,7 +118,36 @@ cards.forEach( (card) =>
     
 
 });
+    // first_card = null;
+    // second_card = null;
+    // found_cards = [];
+    // moves.textContent = "Moves: 0";
+    // pairs.textContent = "Pairs: 0";
 
+    // lock_clik = false;
+    // document.querySelectorAll(".image")
+    // .forEach((img) => 
+    // {
+    // img.style.display = "none";
+    // });
+
+
+restart.addEventListener( "click", () =>
+{
+    first_card = null;
+    second_card = null;
+    found_cards = [];
+    moves.textContent = "Moves: 0";
+    pairs.textContent = "Pairs: 0";
+
+    lock_clik = false;
+    document.querySelectorAll(".image")
+    .forEach((img) => 
+    {
+    img.style.display = "none";
+    });
+
+})
 
 
 
