@@ -90,6 +90,10 @@ cards.forEach( (card) =>
                  pairs.textContent = `pairs: ${count_pair}`; 
                  move_count++;
                  moves.textContent = `Moves: ${move_count}`;
+                 if (count_pair === 6)
+                {
+                     message.textContent = "You win <"-">";   
+                } 
                 
             }else 
             {
