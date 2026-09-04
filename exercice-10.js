@@ -1,16 +1,25 @@
-function calculateTotal(sales)
+const ventes = [
+ { vendeur: "Amina", produit: "Ordinateur portable", montant: 8500, mois: "janvier" },
+ { vendeur: "Youssef", produit: "Smartphone", montant: 4200, mois: "janvier" },
+ { vendeur: "Amina", produit: "Casque audio", montant: 900, mois: "fevrier" },
+ { vendeur: "Sara", produit: "Tablette", montant: 3100, mois: "fevrier" },
+ { vendeur: "Youssef", produit: "Clavier", montant: 450, mois: "mars" },
+ { vendeur: "Sara", produit: "Ecran 27 pouces", montant: 2600, mois: "mars" }
+];
+
+function calculatetotal(sales)
 {
     return sales.reduce((total, sale) => 
     {
-        return total + sale.amount;
+        return total + sale.montant;
     }, 0);
 }
 
-function findBestSale(sales)
+function findbestsale(sales)
 {
     return sales.reduce((best, sale) => 
     {
-        if (sale.amount > best.amount)
+        if (sale.montant > best.montant)
         {
             return sale;
         }
@@ -18,28 +27,28 @@ function findBestSale(sales)
     });
 }
 
-function calculateBySeller(sales)
+function calculatebyseller(sales)
 {
-    let sellerSales = {};
+    let sellersales = {};
 
     sales.forEach((sale) => 
     {
-        if (sellerSales[sale.seller])
+        if (sellersales[sale.vendeur])
         {
-            sellerSales[sale.seller] += sale.amount;
+            sellersales[sale.vendeur] += sale.montant;
         }
         else
         {
-            sellerSales[sale.seller] = sale.amount;
+            sellersales[sale.vendeur] = sale.montant;
         }
     });
 
-    return sellerSales;
+    return sellersales;
 }
 
-function calculateAverage(sellerSales)
+function calculateaverage(sellersales)
 {
-    let amounts = Object.values(sellerSales);
+    let amounts = Object.values(sellersales);
 
     let total = amounts.reduce((sum, amount) => 
     {
@@ -49,37 +58,37 @@ function calculateAverage(sellerSales)
     return total / amounts.length;
 }
 
-function findAboveAverage(sellerSales, average)
+function findaboveaverage(sellersales, average)
 {
-    return Object.keys(sellerSales).filter((seller) => 
+    return Object.keys(sellersales).filter((seller) => 
     {
-        return sellerSales[seller] > average;
+        return sellersales[seller] > average;
     });
 }
 
-function generateReport(sales)
+function generatereport(sales)
 {
-    let total = calculateTotal(sales);
-    let bestSale = findBestSale(sales);
-    let sellerSales = calculateBySeller(sales);
-    let average = calculateAverage(sellerSales);
-    let aboveAverage = findAboveAverage(sellerSales, average);
+    let total = calculatetotal(sales);
+    let bestsale = findbestsale(sales);
+    let sellersales = calculatebyseller(sales);
+    let average = calculateaverage(sellersales);
+    let aboveaverage = findaboveaverage(sellersales, average);
 
     let report = "=== SALES REPORT ===\n\n";
 
     report += "total sales : " + total + " DH\n\n";
-    report += "Best sale : " + bestSale.product + " (" + bestSale.seller + ") - " + bestSale.amount + " DH\n\n";
-    report += "Sales by seller :\n";
+    report += "best sale : " + bestsale.produit + " (" + bestsale.vendeur + ") - " + bestsale.montant + " DH\n\n";
+    report += "sales by seller :\n";
 
-    Object.keys(sellerSales).map((seller) => 
+    Object.keys(sellersales).map((seller) => 
     {
-        report += seller + " : " + sellerSales[seller] + " D\n";
+        report += seller + " : " + sellersales[seller] + " DH\n";
     });
 
-    report += "\nAverage : " + average.toFixed(2) + " DH\n";
-    report += "Above average : " + aboveAverage.join(", ");
+    report += "\naverage : " + average.toFixed(2) + " DH\n";
+    report += "above average : " + aboveaverage.join(", ");
 
     return report;
 }
 
-console.log(generateReport(sales));
+console.log(generatereport(ventes));
