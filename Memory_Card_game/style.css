@@ -1,0 +1,41 @@
+body
+{
+    background: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+.card_img
+{
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    background: black;
+}
+
+.image
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+button
+{
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
