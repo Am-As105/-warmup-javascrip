@@ -25,6 +25,13 @@ const cards = [
     { name: "boxing", image: "" }
 ];
 
+
+
+cards.sort( () => { return Math.random() - 0.5});
+
+let first_card = null;
+let second_card = null;
+
 cards.forEach( (card) =>
 { 
     const card_img = document.createElement("div");
@@ -37,14 +44,19 @@ cards.forEach( (card) =>
     img.setAttribute("src", card.image);
     img.setAttribute("alt", card.name);
     
-    card_img.appendChild(img);
+    
     game.appendChild(card_img);
 
-     card_img.addEventListener( "click",() => 
+    card_img.addEventListener( "click",() => 
     {
-        img.style.display = "block";
+        if ( first_card === null ) 
+            first_card = card;
+        else 
+            second_card = card;
 
-        console.log(card);
+        // img.style.display = "block";
+
+        // console.log(card);
 
     });
     
@@ -52,7 +64,6 @@ cards.forEach( (card) =>
 
 });
 
-cards.sort( () => { return Math.random() - 0.5});
 
 
 
